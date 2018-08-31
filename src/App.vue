@@ -45,7 +45,7 @@
       </v-btn>
     </v-toolbar>
     <v-content>
-      <HelloWorld/>
+      <WishElementForm/>
     </v-content>
     <v-navigation-drawer
       temporary
@@ -70,12 +70,12 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import WishElementForm from './components/WishElementForm'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    WishElementForm
   },
   data () {
     return {
