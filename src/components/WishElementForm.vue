@@ -39,9 +39,8 @@
                 <v-stepper-content
                         v-for="n in steps"
                         :key="`${n}-content`"
-                        :step="n"
-                >
-                    <v-form v-model="valid">
+                        :step="n">
+                    <v-form v-model="valid" v-if="n === 1">
                         {{wishelementquestion}}
                         <v-text-field v-for="(wishelement, index) in wishelements"
                                       :key="index"
@@ -51,10 +50,34 @@
                                       required/>
                     </v-form>
 
+<div v-for="(wishelement, index) in wishelements" :key="index" v-if="n === 2">
+                    <v-subheader>
+                        Example
+                    </v-subheader>
+                    <v-combobox
+                            v-model="chips"
+                            :items="items"
+                            :label="wishelement"
+                            chips
+                            clearable
+                            prepend-icon="filter_list"
+                            solo
+                            multiple>
+                        <template slot="selection" slot-scope="data">
+                            <v-chip
+                                    :selected="data.selected"
+                                    close
+                                    @input="remove(data.item)">
+                                <strong>{{ data.item }}</strong>&nbsp;
+                                <span>(interest)</span>
+                            </v-chip>
+                        </template>
+                    </v-combobox>
+</div>
+
                     <v-btn
                             color="primary"
-                            @click="nextStep(n)"
-                    >
+                            @click="nextStep(n)">
                         Continue
                     </v-btn>
 
@@ -82,7 +105,10 @@
                     'Anderes'
                 ],
                 e1: 1,
-                steps: 2
+                steps: 2,
+
+                chips: ['Programming', 'Playing video games', 'Watching movies', 'Sleeping'],
+                items: ['Streaming', 'Eating']
             }
         },
         watch: {
@@ -103,6 +129,10 @@
                 } else {
                     this.e1 = n + 1
                 }
+            },
+            remove (item) {
+                this.chips.splice(this.chips.indexOf(item), 1)
+                this.chips = [...this.chips]
             }
         }
     }
