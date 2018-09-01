@@ -40,15 +40,7 @@
                         v-for="n in steps"
                         :key="`${n}-content`"
                         :step="n">
-                    <v-form v-model="valid" v-if="n === 1">
-                        {{wishelementquestion}}
-                        <v-text-field v-for="(wishelement, index) in wishelements"
-                                      :key="index"
-                                      v-model="email"
-                                      :rules="emailRules"
-                                      :label="wishelement"
-                                      required/>
-                    </v-form>
+                    <wish-elements-form v-model="valid" v-if="n === 1" :wishelements="wishelements"/>
 
                     <wish-elements-ideas-section  v-for="(wishelement, index) in wishelements" :key="index" v-if="n === 2" :wishelement="wishelement"/>
 
@@ -68,13 +60,13 @@
 
 <script>
     import WishElementsIdeasSection from "./WishElementsIdeasSection";
+    import WishElementsForm from "./WishElementsForm";
 
     export default {
         name: 'wish-elements-content',
-        components: {WishElementsIdeasSection},
+        components: {WishElementsForm, WishElementsIdeasSection},
         data() {
             return {
-                wishelementquestion: 'Welches Wunschelement hat Eigenschaften, die dir dabei helfen, deine Absicht umzusetzen?',
                 wishelements: [
                     'Tier',
                     'Pflanze',
