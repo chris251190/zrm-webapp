@@ -50,30 +50,7 @@
                                       required/>
                     </v-form>
 
-<div v-for="(wishelement, index) in wishelements" :key="index" v-if="n === 2">
-                    <v-subheader>
-                        Example
-                    </v-subheader>
-                    <v-combobox
-                            v-model="chips"
-                            :items="items"
-                            :label="wishelement"
-                            chips
-                            clearable
-                            prepend-icon="filter_list"
-                            solo
-                            multiple>
-                        <template slot="selection" slot-scope="data">
-                            <v-chip
-                                    :selected="data.selected"
-                                    close
-                                    @input="remove(data.item)">
-                                <strong>{{ data.item }}</strong>&nbsp;
-                                <span>(interest)</span>
-                            </v-chip>
-                        </template>
-                    </v-combobox>
-</div>
+                    <wish-elements-ideas-section  v-for="(wishelement, index) in wishelements" :key="index" v-if="n === 2" :wishelement="wishelement"/>
 
                     <v-btn
                             color="primary"
@@ -90,8 +67,11 @@
 </template>
 
 <script>
+    import WishElementsIdeasSection from "./WishElementsIdeasSection";
+
     export default {
         name: 'WishElementForm',
+        components: {WishElementsIdeasSection},
         data() {
             return {
                 wishelementquestion: 'Welches Wunschelement hat Eigenschaften, die dir dabei helfen, deine Absicht umzusetzen?',
@@ -107,8 +87,7 @@
                 e1: 1,
                 steps: 2,
 
-                chips: ['Programming', 'Playing video games', 'Watching movies', 'Sleeping'],
-                items: ['Streaming', 'Eating']
+
             }
         },
         watch: {
@@ -129,10 +108,6 @@
                 } else {
                     this.e1 = n + 1
                 }
-            },
-            remove (item) {
-                this.chips.splice(this.chips.indexOf(item), 1)
-                this.chips = [...this.chips]
             }
         }
     }
