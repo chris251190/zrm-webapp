@@ -70,7 +70,7 @@
     import WishElementsIdeasSection from "./WishElementsIdeasSection";
 
     export default {
-        name: 'WishElementForm',
+        name: 'wish-elements-content',
         components: {WishElementsIdeasSection},
         data() {
             return {

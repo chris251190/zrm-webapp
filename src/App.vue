@@ -3,18 +3,18 @@
         <v-toolbar-title v-text="title"></v-toolbar-title>
         <v-spacer></v-spacer>
         <v-content>
-            <WishElementForm/>
+            <wish-elements-content/>
         </v-content>
     </v-app>
 </template>
 
 <script>
-    import WishElementForm from './components/WishElementForm'
+    import WishElementsContent from './components/WishElementsContent'
 
     export default {
         name: 'App',
         components: {
-            WishElementForm
+            WishElementsContent
         },
         data() {
             return {
