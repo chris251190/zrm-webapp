@@ -40,9 +40,9 @@
                         v-for="n in steps"
                         :key="`${n}-content`"
                         :step="n">
-                    <wish-elements-form v-model="valid" v-if="n === 1" :wishelements="wishelements"/>
+                    <wish-elements-form v-if="n === 1" :wishelements="wishelements"/>
 
-                    <wish-elements-ideas-section  v-for="(wishelement, index) in wishelements" :key="index" v-if="n === 2" :wishelement="wishelement"/>
+                    <wish-elements-ideas-section v-for="(wishelement, index) in wishelements" :key="index" v-if="n === 2" :wishelement="wishelement"/>
 
                     <v-btn
                             color="primary"
