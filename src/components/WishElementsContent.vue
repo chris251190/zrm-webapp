@@ -42,7 +42,7 @@
                         :step="n">
                     <wish-elements-form v-if="n === 1" :wishelements="wishelements"/>
 
-                    <wish-elements-ideas-section v-for="(wishelement, index) in wishelements" :key="index" v-if="n === 2" :wishelement="wishelement"/>
+                    <wish-elements-ideas-section v-for="(idea, index) in ideas" :key="index" v-if="n === 2" :idea="idea"/>
 
                     <v-btn
                             color="primary"
@@ -61,10 +61,6 @@
 <script>
     import WishElementsIdeasSection from "./WishElementsIdeasSection";
     import WishElementsForm from "./WishElementsForm";
-    import store from "../store";
-
-    store.commit('increment')
-    console.log(store.state.count) // -> 1
 
     export default {
         name: 'wish-elements-content',
@@ -80,10 +76,9 @@
                     'Fahrzeug',
                     'Anderes'
                 ],
+                ideas: this.$store.state.ideas,
                 e1: 1,
                 steps: 2,
-
-
             }
         },
         watch: {

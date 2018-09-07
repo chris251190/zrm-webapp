@@ -10,7 +10,7 @@
         name: 'wish-elements-form-text-field',
         methods: {
             handleChange: function () {
-                alert(this.value);
+                this.$store.commit('addIdea', this.value)
             }
         },
         props: ['wishelement'],

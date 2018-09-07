@@ -1,12 +1,12 @@
 <template>
     <div>
         <v-subheader>
-            {{wishelement}}
+            {{idea}}
         </v-subheader>
         <v-combobox
                 v-model="chips"
                 :items="items"
-                :label="wishelement"
+                :label="idea"
                 chips
                 clearable
                 prepend-icon="filter_list"
@@ -26,7 +26,7 @@
 <script>
     export default {
         name: 'wish-elements-ideas-section',
-        props: ['wishelement'],
+        props: ['idea'],
         data(){
             return {
                 chips: ['Programming', 'Playing video games', 'Watching movies', 'Sleeping'],
