@@ -42,7 +42,11 @@
                         :step="n">
                     <wish-elements-form v-if="n === 1" :wishelements="wishelements"/>
 
-                    <wish-elements-ideas-section v-for="(idea, index) in ideas" :key="index" v-if="n === 2" :idea="idea"/>
+                    <div v-if="n === 2">
+                    {{question}}
+
+                    <wish-elements-ideas-section v-for="(idea, index) in ideas" :key="index" :idea="idea"/>
+                    </div>
 
                     <v-btn
                             color="primary"
@@ -67,6 +71,7 @@
         components: {WishElementsForm, WishElementsIdeasSection},
         data() {
             return {
+                question: 'Welche Eigenschaften hat dein Wunschelement, die dir dabei helfen können, dein Unbewusstes mit ins Boot zu holen?',
                 wishelements: [
                     'Tier',
                     'Pflanze',
