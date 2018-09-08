@@ -24,12 +24,11 @@
                     ' beispielsweise. Die Hauptsache ist, dass es neu ist und dich an dein Mottoziel erinnert. Für den Anfang werden 5 Erinnerungshilfen' +
                     ' empfohlen.',
                 numbers: ['1', '2', '3', '4', '5'],
-                mottoGoal: this.$store.state.mottoGoal
             }
         },
         computed: {
             motto: function(){
-                return "\"" + this.mottoGoal + "\""
+                return "\"" + this.$store.state.mottoGoal + "\""
             }
         }
     }
