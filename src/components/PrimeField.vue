@@ -1,6 +1,5 @@
 <template>
     <v-text-field
-            v-model="name"
             :label="primeText"
             required
             @change="handleChange"
