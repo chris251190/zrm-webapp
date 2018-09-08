@@ -3,7 +3,7 @@
         <v-container fluid grid-list-xl>
             <v-layout row wrap>
                 <v-flex xs12>
-                    <v-toolbar-title v-text="title"></v-toolbar-title>
+                    <v-toolbar-title v-text="title" class="pb-3"></v-toolbar-title>
                 </v-flex>
                 <v-content>
                     <wish-elements-content/>
