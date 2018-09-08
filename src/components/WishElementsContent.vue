@@ -1,21 +1,5 @@
 <template>
     <div>
-        <v-card class="mb-3">
-            <v-card-text>
-                <div>{{ typeof steps }}</div>
-
-                <v-text-field
-                        :value="steps"
-                        hint="This demo has a maximum of 6 steps"
-                        label="# of steps"
-                        max="6"
-                        min="1"
-                        persistent-hint
-                        type="number"
-                        @input="onInput"
-                ></v-text-field>
-            </v-card-text>
-        </v-card>
         <v-stepper v-model="e1">
             <v-stepper-header>
                 <template v-for="n in steps">
