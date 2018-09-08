@@ -10,10 +10,14 @@ export default new Vuex.Store({
     },
     mutations: {
         addIdea (state, idea) {
-            state.ideas.push(idea)
+            if(state.ideas.indexOf(idea) < 0) {
+                state.ideas.push(idea)
+            }
         },
         addAssociation (state, association) {
-            state.associations.push(association)
+            if(state.associations.indexOf(association) < 0) {
+                state.associations.push(association)
+            }
         }
     }
 })
