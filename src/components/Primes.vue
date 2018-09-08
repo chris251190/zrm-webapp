@@ -5,7 +5,7 @@
         <div>{{primes}}</div>
 
         <v-form v-model="valid">
-            <PrimeField v-for="number in numbers" v-bind:text="number"/>
+            <PrimeField v-for="(number, index) in numbers" :key="index" v-bind:text="number"/>
         </v-form>
     </div>
 </template>

@@ -3,6 +3,7 @@
             v-model="name"
             :label="primeText"
             required
+            @change="handleChange"
     ></v-text-field>
 </template>
 <script>
@@ -14,6 +15,11 @@
             primeText: function () {
                 // `this` points to the vm instance
                 return "Erinnerungshilfe " + this.text;
+            }
+        },
+        methods: {
+            handleChange(prime){
+                this.$store.commit('addPrime', prime)
             }
         }
     }

@@ -1,14 +1,18 @@
 <template>
     <div>
         Overview
-
-        <span>{{this.$store.state.primes}}</span>
+        <span v-for="(prime, index) in primes" :key="index"><br/>{{prime}}</span>
     </div>
 </template>
 
 <script>
     export default {
-        name: "overview"
+        name: "overview",
+        data() {
+            return {
+                primes: this.$store.state.primes
+            }
+        }
     }
 </script>
 
