@@ -4,7 +4,7 @@
       <p class="subheading">{{introduction}}</p>
 
       <v-combobox
-              v-model="chips"
+              v-model="associations"
               :items="items"
               :label="defaultText"
               chips
@@ -44,7 +44,6 @@
                 introduction: 'Hier sind noch einmal deine Lieblingsideen aufgelistet. ' +
                     'Mit diesen kannst du nun dein Mottoziel bauen. Dieses soll eine ' +
                     'innere Haltung beschreiben, die du in Bezug auf dein ursprüngliches Ziel einnehmen willst.',
-                chips: this.$store.state.associations,
                 items: [],
                 motto: '',
                 mottoTextField: 'Dein Motto: ',
@@ -63,9 +62,9 @@
                 this.$store.commit("addMottoGoal", mottoGoal);
             }
         },
-        watch: {
-            'chips': {
-                deep: true
+        computed: {
+            associations() {
+                return this.$store.state.associations;
             }
         }
     }
