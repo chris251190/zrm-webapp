@@ -32,6 +32,7 @@
                     <wish-elements-form v-if="n === 1" :wishelements="wishelements"/>
 
                     <div v-if="n === 2">
+                        <p class="title">{{title}}</p>
                         <p class="subheading">{{question}}</p>
 
                         <wish-elements-ideas-section v-for="(idea, index) in ideas" :key="index" :idea="idea"/>
@@ -39,11 +40,11 @@
 
                     <motto-goal v-if="n === 3"/>
 
-                    <primes v-if="n === 4" />
+                    <primes v-if="n === 4"/>
 
-                    <embodiment v-if="n === 5" />
+                    <embodiment v-if="n === 5"/>
 
-                    <overview v-if="n === 6" />
+                    <overview v-if="n === 6"/>
 
                     <v-btn
                             color="primary"
@@ -72,6 +73,7 @@
         components: {Embodiment, Primes, WishElementsForm, WishElementsIdeasSection, MottoGoal, Overview},
         data() {
             return {
+                title: 'Hilfreiche Eigenschaften finden',
                 question: 'Welche Eigenschaften hat dein Wunschelement, die dir dabei helfen können, dein Unbewusstes mit ins Boot zu holen?',
                 wishelements: [
                     'Tier',

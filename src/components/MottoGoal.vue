@@ -1,5 +1,6 @@
 <template>
    <div>
+      <p class="title">{{title}}</p>
       <p class="subheading">{{introduction}}</p>
 
       <v-combobox
@@ -38,6 +39,7 @@
         name: 'motto-goal',
         data() {
             return {
+                title: 'Mottoziel bilden',
                 introduction: 'Hier sind noch einmal deine Lieblingsideen aufgelistet. ' +
                     'Mit diesen kannst du nun dein Mottoziel bauen. Dieses soll eine ' +
                     'innere Haltung beschreiben, die du in Bezug auf dein ursprüngliches Ziel einnehmen willst.',

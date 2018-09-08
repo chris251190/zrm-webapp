@@ -1,6 +1,8 @@
 <template>
     <div>
-        <p class="subheading">{{text}}</p> <p class="title">{{motto}}</p>
+        <p class="title">{{title}}</p>
+        <p class="subheading">{{text}}</p>
+        <p class="title">{{motto}}</p>
 
         <p class="body-1">{{primesText}}</p>
 
@@ -18,7 +20,8 @@
         components: {PrimeField},
         data() {
             return {
-            text: 'Dein Mottoziel ist fertig und lautet: ',
+                title: 'Erinnerungshilfen finden',
+                text: 'Dein Mottoziel ist fertig und lautet: ',
                 primesText: 'Um dein Mottoziel zu stärken, brauchst du noch Erinnerungshilfen: Diese können alles mögliche sein ' +
                     'wie ein neues Passwort, ein Schlüsselanhänger, ein neues Hintergrundbild für dein Handy oder ein neues Kleidungsstück' +
                     ' beispielsweise. Die Hauptsache ist, dass es neu ist und dich an dein Mottoziel erinnert. Für den Anfang werden 5 Erinnerungshilfen' +
@@ -27,7 +30,7 @@
             }
         },
         computed: {
-            motto: function(){
+            motto: function () {
                 return "\"" + this.$store.state.mottoGoal + "\""
             }
         }

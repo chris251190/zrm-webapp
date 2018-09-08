@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-layout row wrap>
-                Overview
+                <p class="title">{{title}}</p>
         </v-layout>
 
         <v-layout row wrap v-for="(prime, index) in primes" :key="index">
@@ -17,6 +17,7 @@
         name: "overview",
         data() {
             return {
+                title: 'Übersicht zum Ausdrucken',
                 primes: this.$store.state.primes
             }
         }
