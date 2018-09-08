@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         ideas: [],
-        associations: []
+        associations: [],
+        mottoGoal: ''
     },
     mutations: {
         addIdea (state, idea) {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
             if(state.associations.indexOf(association) < 0) {
                 state.associations.push(association)
             }
+        },
+        addMottoGoal(state, mottoGoal) {
+          state.mottoGoal = mottoGoal;
         }
     }
 })

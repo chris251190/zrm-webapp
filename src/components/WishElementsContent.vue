@@ -9,7 +9,12 @@
                             :step="n"
                             editable
                     >
-                        Step {{ n }}
+                        <span v-if="n === 1">Wunschelemente finden</span>
+                        <span v-if="n === 2">hilfreiche Eigenschaften finden</span>
+                        <span v-if="n === 3">Mottoziel bilden</span>
+                        <span v-if="n === 4">Erinnerungshilfen finden</span>
+                        <span v-if="n === 5">Embodiment erarbeiten</span>
+                        <span v-if="n === 6">Übersicht zum Ausdrucken</span>
                     </v-stepper-step>
 
                     <v-divider
@@ -34,6 +39,8 @@
 
                     <motto-goal v-if="n === 3"/>
 
+                    <overview v-if="n === 4" />
+
                     <v-btn
                             color="primary"
                             @click="nextStep(n)">
@@ -52,10 +59,11 @@
     import WishElementsIdeasSection from "./WishElementsIdeasSection";
     import WishElementsForm from "./WishElementsForm";
     import MottoGoal from "./MottoGoal";
+    import Overview from "./Overview";
 
     export default {
         name: 'wish-elements-content',
-        components: {WishElementsForm, WishElementsIdeasSection, MottoGoal},
+        components: {Overview, WishElementsForm, WishElementsIdeasSection, MottoGoal},
         data() {
             return {
                 question: 'Welche Eigenschaften hat dein Wunschelement, die dir dabei helfen können, dein Unbewusstes mit ins Boot zu holen?',
@@ -70,7 +78,7 @@
                 ],
                 ideas: this.$store.state.ideas,
                 e1: 1,
-                steps: 3,
+                steps: 6,
             }
         },
         watch: {
@@ -82,9 +90,6 @@
         },
 
         methods: {
-            onInput(val) {
-                this.steps = parseInt(val)
-            },
             nextStep(n) {
                 if (n === this.steps) {
                     this.e1 = 1
