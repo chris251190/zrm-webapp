@@ -21,6 +21,10 @@ export default new Vuex.Store({
                 state.associations.push(association)
             }
         },
+        deleteAssociation (state, item) {
+            state.associations.splice(state.associations.indexOf(item), 1)
+            state.associations = [...state.associations]
+        },
         addMottoGoal(state, mottoGoal) {
           state.mottoGoal = mottoGoal;
         },

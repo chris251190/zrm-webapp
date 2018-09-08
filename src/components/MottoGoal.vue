@@ -1,34 +1,34 @@
 <template>
-   <div>
-      <section-title :title="title"/>
-      <p class="subheading">{{introduction}}</p>
+    <div>
+        <section-title :title="title"/>
+        <p class="subheading">{{introduction}}</p>
 
-      <v-combobox
-              v-model="associations"
-              :items="items"
-              :label="defaultText"
-              chips
-              clearable
-              multiple>
-         <template slot="selection" slot-scope="data">
-            <v-chip
-                    :selected="data.selected"
-                    close
-                    @input="remove(data.item)">
-               <strong>{{ data.item }}</strong>&nbsp;
-            </v-chip>
-         </template>
-      </v-combobox>
+        <v-combobox
+                v-model="associations"
+                :items="items"
+                :label="defaultText"
+                chips
+                clearable
+                multiple>
+            <template slot="selection" slot-scope="data">
+                <v-chip
+                        :selected="data.selected"
+                        close
+                        @input="remove(data.item)">
+                    <strong>{{ data.item }}</strong>&nbsp;
+                </v-chip>
+            </template>
+        </v-combobox>
 
-      <v-text-field
-              v-model="motto"
-              :rules="mottoRules"
-              :counter="100"
-              :label="mottoTextField"
-              required
-              @change="handleChange"
-      ></v-text-field>
-   </div>
+        <v-text-field
+                v-model="motto"
+                :rules="mottoRules"
+                :counter="100"
+                :label="mottoTextField"
+                required
+                @change="handleChange"
+        ></v-text-field>
+    </div>
 </template>
 
 
@@ -54,9 +54,8 @@
             }
         },
         methods: {
-            remove (item) {
-                this.chips.splice(this.chips.indexOf(item), 1)
-                this.chips = [...this.chips]
+            remove(item) {
+                this.$store.commit("deleteAssociation", item);
             },
             handleChange(mottoGoal) {
                 this.$store.commit("addMottoGoal", mottoGoal);
