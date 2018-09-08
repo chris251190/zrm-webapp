@@ -1,6 +1,6 @@
 <template>
    <div>
-      <p class="title">{{title}}</p>
+      <section-title :title="title"/>
       <p class="subheading">{{introduction}}</p>
 
       <v-combobox
@@ -33,8 +33,11 @@
 
 
 <script>
+    import SectionTitle from "./SectionTitle";
+
     export default {
         name: 'motto-goal',
+        components: {SectionTitle},
         data() {
             return {
                 title: 'Mottoziel bilden',

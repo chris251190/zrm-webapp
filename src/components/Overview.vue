@@ -1,8 +1,6 @@
 <template>
     <div>
-        <v-layout row wrap>
-                <p class="title">{{title}}</p>
-        </v-layout>
+        <section-title :title="title"/>
 
         <v-layout row wrap v-for="(prime, index) in primes" :key="index">
             <v-flex>
@@ -13,8 +11,11 @@
 </template>
 
 <script>
+    import SectionTitle from "./SectionTitle";
+
     export default {
         name: "overview",
+        components: {SectionTitle},
         data() {
             return {
                 title: 'Übersicht zum Ausdrucken',

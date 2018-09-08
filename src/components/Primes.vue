@@ -1,8 +1,8 @@
 <template>
     <div>
-        <p class="title">{{title}}</p>
+        <section-title :title="title"/>
         <p class="subheading">{{text}}</p>
-        <p class="title">{{motto}}</p>
+        <p class="title py-4">{{motto}}</p>
 
         <p class="body-1">{{primesText}}</p>
 
@@ -14,10 +14,11 @@
 
 <script>
     import PrimeField from "./PrimeField";
+    import SectionTitle from "./SectionTitle";
 
     export default {
         name: "primes",
-        components: {PrimeField},
+        components: {PrimeField, SectionTitle},
         data() {
             return {
                 title: 'Erinnerungshilfen finden',

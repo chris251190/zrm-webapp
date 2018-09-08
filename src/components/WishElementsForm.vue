@@ -1,6 +1,6 @@
 <template>
     <v-form>
-        <p class="title">{{title}}</p>
+        <section-title :title="title"/>
         <p class="subheading">{{wishelementquestion}}</p>
         <wish-elements-form-text-field v-for="(wishelement, index) in wishelements" :key="index" :wishelement="wishelement"/>
     </v-form>
@@ -8,10 +8,11 @@
 <script>
 
     import WishElementsFormTextField from "./WishElementsFormTextField";
+    import SectionTitle from "./SectionTitle";
 
     export default {
         name: 'wish-elements-form',
-        components: {WishElementsFormTextField},
+        components: {WishElementsFormTextField, SectionTitle},
         props: ['wishelements'],
         data() {
             return {

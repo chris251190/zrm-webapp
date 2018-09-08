@@ -31,7 +31,7 @@
                     <wish-elements-form v-if="n === 1" :wishelements="wishelements"/>
 
                     <div v-if="n === 2">
-                        <p class="title">{{title}}</p>
+                        <section-title :title="title"/>
                         <p class="subheading">{{question}}</p>
 
                         <wish-elements-ideas-section v-for="(idea, index) in ideas" :key="index" :idea="idea"/>
@@ -71,10 +71,11 @@
     import Primes from "./Primes";
     import Overview from "./Overview";
     import Embodiment from "./Embodiment";
+    import SectionTitle from "./SectionTitle";
 
     export default {
         name: 'wish-elements-content',
-        components: {Embodiment, Primes, WishElementsForm, WishElementsIdeasSection, MottoGoal, Overview},
+        components: {SectionTitle, Embodiment, Primes, WishElementsForm, WishElementsIdeasSection, MottoGoal, Overview},
         data() {
             return {
                 title: 'Hilfreiche Eigenschaften finden',
