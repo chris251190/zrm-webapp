@@ -5,7 +5,9 @@
         </v-subheader>
         <v-combobox
                 v-model="chips"
+                :items="items"
                 :label="defaultText"
+                chips
                 clearable
                 prepend-icon="filter_list"
                 solo
@@ -27,6 +29,8 @@
         props: ['idea'],
         data(){
             return {
+                chips: [],
+                items: [],
                 defaultText: 'Notiere hier deine Ideen und drücke Enter zum Bestätigen'
             }
         },
