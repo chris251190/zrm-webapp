@@ -9,7 +9,6 @@
                 :label="defaultText"
                 chips
                 clearable
-                prepend-icon="filter_list"
                 solo
                 multiple
                 @change="handleChange"
