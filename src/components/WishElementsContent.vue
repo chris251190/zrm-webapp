@@ -9,12 +9,12 @@
                             :step="n"
                             editable
                     >
-                        <span v-if="n === 1">Wunschelemente finden</span>
-                        <span v-if="n === 2">hilfreiche Eigenschaften finden</span>
-                        <span v-if="n === 3">Mottoziel bilden</span>
-                        <span v-if="n === 4">Erinnerungshilfen finden</span>
-                        <span v-if="n === 5">Embodiment erarbeiten</span>
-                        <span v-if="n === 6">Übersicht zum Ausdrucken</span>
+                        <span class="caption" v-if="n === 1">Wunschelemente finden</span>
+                        <span class="caption" v-if="n === 2">hilfreiche Eigenschaften finden</span>
+                        <span class="caption" v-if="n === 3">Mottoziel bilden</span>
+                        <span class="caption" v-if="n === 4">Erinnerungshilfen finden</span>
+                        <span class="caption" v-if="n === 5">Embodiment erarbeiten</span>
+                        <span class="caption" v-if="n === 6">Übersicht zum Ausdrucken</span>
                     </v-stepper-step>
 
                     <v-divider
@@ -32,7 +32,7 @@
                     <wish-elements-form v-if="n === 1" :wishelements="wishelements"/>
 
                     <div v-if="n === 2">
-                        {{question}}
+                        <p class="subheading">{{question}}</p>
 
                         <wish-elements-ideas-section v-for="(idea, index) in ideas" :key="index" :idea="idea"/>
                     </div>

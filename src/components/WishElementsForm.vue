@@ -1,6 +1,6 @@
 <template>
     <v-form>
-        {{wishelementquestion}}
+        <p class="subheading">{{wishelementquestion}}</p>
         <wish-elements-form-text-field v-for="(wishelement, index) in wishelements" :key="index" :wishelement="wishelement"/>
     </v-form>
 </template>

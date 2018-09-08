@@ -1,6 +1,6 @@
 <template>
    <div>
-      {{introduction}}
+      <p class="subheading">{{introduction}}</p>
 
       <v-combobox
               v-model="chips"

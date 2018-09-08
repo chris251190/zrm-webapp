@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div>{{text}} {{this.$store.state.mottoGoal}}</div>
+        <p class="subheading">{{text}}</p> <p class="title">{{motto}}</p>
 
-        <div>{{primes}}</div>
+        <p class="body-1">{{primesText}}</p>
 
         <v-form v-model="valid">
             <PrimeField v-for="(number, index) in numbers" :key="index" v-bind:text="number"/>
@@ -19,11 +19,17 @@
         data() {
             return {
             text: 'Dein Mottoziel ist fertig und lautet: ',
-                primes: 'Um dein Mottoziel zu stärken, brauchst du noch Erinnerungshilfen: Diese können alles mögliche sein ' +
+                primesText: 'Um dein Mottoziel zu stärken, brauchst du noch Erinnerungshilfen: Diese können alles mögliche sein ' +
                     'wie ein neues Passwort, ein Schlüsselanhänger, ein neues Hintergrundbild für dein Handy oder ein neues Kleidungsstück' +
                     ' beispielsweise. Die Hauptsache ist, dass es neu ist und dich an dein Mottoziel erinnert. Für den Anfang werden 5 Erinnerungshilfen' +
                     ' empfohlen.',
-                numbers: ['1', '2', '3', '4', '5']
+                numbers: ['1', '2', '3', '4', '5'],
+                mottoGoal: this.$store.state.mottoGoal
+            }
+        },
+        computed: {
+            motto: function(){
+                return "\"" + this.mottoGoal + "\""
             }
         }
     }
