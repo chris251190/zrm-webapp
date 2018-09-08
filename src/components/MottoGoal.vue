@@ -15,7 +15,7 @@
             <v-chip
                     :selected="data.selected"
                     close
-                    @input="remove">
+                    @input="remove(data.item)">
                <strong>{{ data.item }}</strong>&nbsp;
             </v-chip>
          </template>
