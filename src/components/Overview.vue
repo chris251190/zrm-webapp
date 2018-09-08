@@ -1,7 +1,14 @@
 <template>
     <div>
-        Overview
-        <span v-for="(prime, index) in primes" :key="index"><br/>{{prime}}</span>
+        <v-layout row wrap>
+                Overview
+        </v-layout>
+
+        <v-layout row wrap v-for="(prime, index) in primes" :key="index">
+            <v-flex>
+                {{prime}}
+            </v-flex>
+        </v-layout>
     </div>
 </template>
 
