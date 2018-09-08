@@ -46,13 +46,18 @@
 
                     <overview v-if="n === 6"/>
 
-                    <v-btn
-                            color="primary"
-                            @click="nextStep(n)">
-                        Continue
+                    <v-btn v-if="n > 1"
+                           color="primary"
+                           @click="backStep(n)">
+                        {{backwardsBtnText}}
                     </v-btn>
 
-                    <v-btn flat>Cancel</v-btn>
+                    <v-btn v-if="n < 6"
+                           color="primary"
+                           @click="nextStep(n)">
+                        {{continueBtnText}}
+                    </v-btn>
+
                 </v-stepper-content>
             </v-stepper-items>
         </v-stepper>
@@ -87,6 +92,8 @@
                 ideas: this.$store.state.ideas,
                 e1: 1,
                 steps: 6,
+                continueBtnText: 'Weiter',
+                backwardsBtnText: 'Zurück'
             }
         },
         watch: {
@@ -103,6 +110,13 @@
                     this.e1 = 1
                 } else {
                     this.e1 = n + 1
+                }
+            },
+            backStep(n) {
+                if (n === this.steps) {
+                    this.e1 = this.steps - 1
+                } else {
+                    this.e1 = n - 1
                 }
             }
         }
