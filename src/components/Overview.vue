@@ -1,5 +1,9 @@
 <template>
-    <div>Overview</div>
+    <div>
+        Overview
+
+        <span>{{this.$store.state.primes}}</span>
+    </div>
 </template>
 
 <script>

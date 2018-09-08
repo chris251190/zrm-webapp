@@ -7,7 +7,8 @@ export default new Vuex.Store({
     state: {
         ideas: [],
         associations: [],
-        mottoGoal: ''
+        mottoGoal: '',
+        primes: []
     },
     mutations: {
         addIdea (state, idea) {
@@ -22,6 +23,11 @@ export default new Vuex.Store({
         },
         addMottoGoal(state, mottoGoal) {
           state.mottoGoal = mottoGoal;
+        },
+        addPrime (state, prime) {
+            if(state.primes.indexOf(prime) < 0) {
+                state.primes.push(prime)
+            }
         }
     }
 })
