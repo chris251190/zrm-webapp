@@ -39,7 +39,11 @@
 
                     <motto-goal v-if="n === 3"/>
 
-                    <overview v-if="n === 4" />
+                    <primes v-if="n === 4" />
+
+                    <embodiment v-if="n === 5" />
+
+                    <overview v-if="n === 6" />
 
                     <v-btn
                             color="primary"
@@ -59,11 +63,13 @@
     import WishElementsIdeasSection from "./WishElementsIdeasSection";
     import WishElementsForm from "./WishElementsForm";
     import MottoGoal from "./MottoGoal";
+    import Primes from "./Primes";
     import Overview from "./Overview";
+    import Embodiment from "./Embodiment";
 
     export default {
         name: 'wish-elements-content',
-        components: {Overview, WishElementsForm, WishElementsIdeasSection, MottoGoal},
+        components: {Embodiment, Primes, WishElementsForm, WishElementsIdeasSection, MottoGoal, Overview},
         data() {
             return {
                 question: 'Welche Eigenschaften hat dein Wunschelement, die dir dabei helfen können, dein Unbewusstes mit ins Boot zu holen?',
