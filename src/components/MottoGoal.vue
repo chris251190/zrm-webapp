@@ -54,6 +54,11 @@
                 this.chips.splice(this.chips.indexOf(item), 1)
                 this.chips = [...this.chips]
             }
+        },
+        watch: {
+            'chips': {
+                deep: true
+            }
         }
     }
 </script>
