@@ -11,12 +11,15 @@
                 clearable
                 prepend-icon="filter_list"
                 solo
-                multiple>
+                multiple
+                @change="handleChange"
+        >
             <template slot="selection" slot-scope="data">
                 <v-chip
                         :selected="data.selected"
                         close
-                        @input="remove">
+                        @input="remove"
+                        >
                     <strong>{{ data.item }}</strong>&nbsp;
                 </v-chip>
             </template>
@@ -27,7 +30,7 @@
     export default {
         name: 'wish-elements-ideas-section',
         props: ['idea'],
-        data(){
+        data() {
             return {
                 chips: [],
                 items: [],
@@ -35,9 +38,12 @@
             }
         },
         methods: {
-            remove (item) {
+            remove(item) {
                 this.chips.splice(this.chips.indexOf(item), 1)
                 this.chips = [...this.chips]
+            },
+            handleChange(association) {
+                this.$store.commit('addAssociation', association[association.length-1])
             }
         }
     }
