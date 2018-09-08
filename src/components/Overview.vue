@@ -1,5 +1,5 @@
 <template>
-    <div>{{text}}</div>
+    <div>{{text}} {{this.$store.state.mottoGoal}}</div>
 </template>
 
 <script>

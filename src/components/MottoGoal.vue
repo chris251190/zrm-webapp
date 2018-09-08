@@ -27,6 +27,7 @@
               :counter="100"
               label="Dein Motto: "
               required
+              @change="handleChange"
       ></v-text-field>
    </div>
 </template>
@@ -53,6 +54,9 @@
             remove (item) {
                 this.chips.splice(this.chips.indexOf(item), 1)
                 this.chips = [...this.chips]
+            },
+            handleChange(mottoGoal) {
+                this.$store.commit("addMottoGoal", mottoGoal);
             }
         },
         watch: {
