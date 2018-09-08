@@ -2,6 +2,7 @@
     <div>
         <div>{{text}} {{this.$store.state.mottoGoal}}</div>
 
+
         <div>{{primes}}</div>
 
         <v-form v-model="valid">
