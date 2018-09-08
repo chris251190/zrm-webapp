@@ -1,10 +1,11 @@
 <template>
     <v-app>
-        <v-toolbar-title v-text="title"></v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-content>
-            <wish-elements-content/>
-        </v-content>
+        <v-container fluid>
+            <v-toolbar-title v-text="title"></v-toolbar-title>
+            <v-content>
+                <wish-elements-content/>
+            </v-content>
+        </v-container>
     </v-app>
 </template>
 
