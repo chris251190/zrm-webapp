@@ -40,6 +40,7 @@
             remove(item) {
                 this.chips.splice(this.chips.indexOf(item), 1)
                 this.chips = [...this.chips]
+                this.$store.commit("deleteAssociation", item);
             },
             handleChange(association) {
                 this.$store.commit('addAssociation', association[association.length-1])
