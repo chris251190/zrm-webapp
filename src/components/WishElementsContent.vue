@@ -43,10 +43,12 @@
                     <wish-elements-form v-if="n === 1" :wishelements="wishelements"/>
 
                     <div v-if="n === 2">
-                    {{question}}
+                        {{question}}
 
-                    <wish-elements-ideas-section v-for="(idea, index) in ideas" :key="index" :idea="idea"/>
+                        <wish-elements-ideas-section v-for="(idea, index) in ideas" :key="index" :idea="idea"/>
                     </div>
+
+                    <motto-goal v-if="n === 3"/>
 
                     <v-btn
                             color="primary"
@@ -65,10 +67,11 @@
 <script>
     import WishElementsIdeasSection from "./WishElementsIdeasSection";
     import WishElementsForm from "./WishElementsForm";
+    import MottoGoal from "./MottoGoal";
 
     export default {
         name: 'wish-elements-content',
-        components: {WishElementsForm, WishElementsIdeasSection},
+        components: {WishElementsForm, WishElementsIdeasSection, MottoGoal},
         data() {
             return {
                 question: 'Welche Eigenschaften hat dein Wunschelement, die dir dabei helfen können, dein Unbewusstes mit ins Boot zu holen?',
@@ -83,7 +86,7 @@
                 ],
                 ideas: this.$store.state.ideas,
                 e1: 1,
-                steps: 2,
+                steps: 3,
             }
         },
         watch: {
