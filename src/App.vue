@@ -1,10 +1,14 @@
 <template>
     <v-app>
-        <v-container fluid>
-            <v-toolbar-title v-text="title"></v-toolbar-title>
-            <v-content>
-                <wish-elements-content/>
-            </v-content>
+        <v-container fluid grid-list-xl>
+            <v-layout row wrap>
+                <v-flex xs12>
+                    <v-toolbar-title v-text="title"></v-toolbar-title>
+                </v-flex>
+                <v-content>
+                    <wish-elements-content/>
+                </v-content>
+            </v-layout>
         </v-container>
     </v-app>
 </template>
