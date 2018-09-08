@@ -9,8 +9,6 @@
               :label="defaultText"
               chips
               clearable
-              prepend-icon="filter_list"
-              solo
               multiple>
          <template slot="selection" slot-scope="data">
             <v-chip
@@ -26,7 +24,7 @@
               v-model="motto"
               :rules="mottoRules"
               :counter="100"
-              label="Dein Motto: "
+              :label="mottoTextField"
               required
               @change="handleChange"
       ></v-text-field>
@@ -46,6 +44,7 @@
                 chips: this.$store.state.associations,
                 items: [],
                 motto: '',
+                mottoTextField: 'Dein Motto: ',
                 mottoRules: [
                     v => !!v || 'Dein Motto ist noch leer',
                 ],
